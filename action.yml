@@ -1,0 +1,22 @@
+name: 'Label iOS version from Info.plist'
+description: 'Reads iOS version from Info.plist file and adds label to PR'
+author: 'classpass'
+inputs:
+  info-plist-path:
+    description: 'Relative path for the Info.plist file.'
+    required: true
+  repo-token:
+    description: 'The GITHUB_TOKEN secret'
+    required: true
+  changed-files:
+    description: 'Only apply the label if any files in this list of path globs have changed'
+    required: false
+  label-format:
+    description: 'Format string for the label, e.g. "iOS app {version}"'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'file'
+  color: 'blue'
